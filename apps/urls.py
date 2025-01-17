@@ -1,6 +1,8 @@
 from django.contrib import admin
 from django.urls import path
+from graphene_django.views import GraphQLView
 
+from apps.schema import schema
 from apps.views import HomeTemplateView, AuthFormView, UseDocumentTemplate, LogoutView, ProfileView, \
     ProfileEditFormView, AdminTemplateView,   \
      KangalarTemplateView, \
@@ -46,6 +48,11 @@ urlpatterns2 = [
 
 ]
 
-urlpatterns = urlpatterns1 + urlpatterns2 + urlpatterns3
+urlpatterns4 = [
+    path('graphql/', GraphQLView.as_view(graphiql=True, schema=schema))
+]
+
+
+urlpatterns = urlpatterns1 + urlpatterns2 + urlpatterns3+urlpatterns4
 
 

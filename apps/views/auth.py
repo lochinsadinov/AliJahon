@@ -10,7 +10,7 @@ from django.views import View
 from django.views.generic import TemplateView, FormView, ListView
 
 from apps.forms import AuthForm, ProfileEditForm, ChangePasswordForm, WithDrawForm
-from apps.models import User, Region, District, Wishlist, WithDraw
+from apps.models import User, Region, District, Wishlist, WithDraw, Category
 
 
 class AuthFormView(FormView):
@@ -177,8 +177,6 @@ class WithDrawFormView(ListView , FormView):
         context = super().get_context_data(*args , **kwargs)
         context.update(self.get_queryset().filter(status = WithDraw.WithDrawStatus.COMPLETED.value).aggregate(completed_pay=Sum('amount')))
         return context
-
-
 
 
 

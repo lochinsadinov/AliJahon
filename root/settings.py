@@ -18,7 +18,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'apps',
-    'django.contrib.humanize'
+    'django.contrib.humanize',
+    'graphene_django'
 
 ]
 AUTH_USER_MODEL = 'apps.User'
@@ -94,3 +95,7 @@ MEDIA_URL = 'media/'
 MEDIA_ROOT = join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+GRAPHENE={
+    "SCHEMA":"django_root.schema.schema"
+}

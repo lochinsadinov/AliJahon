@@ -12,3 +12,5 @@ mig:
 create_user:
 	python3 manage.py createsuperuser
 
+
+ http://0.0.0.0:8020/
