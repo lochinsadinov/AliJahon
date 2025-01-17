@@ -10,7 +10,7 @@ from apps.views import HomeTemplateView, AuthFormView, UseDocumentTemplate, Logo
     wishlist_view, OrderSuccessTemplateView, MerketCategoryListView, ThreadListFormView, OrderListView, search_view, \
     ThreatStatistikaListView, WithDrawFormView, OperatorFormView, OrderDetailView , CompetitionListView
 
-urlpatterns1 = [
+urlpatterns = [
     path('' , HomeTemplateView.as_view() , name = 'home'),
     path('category/<str:slug>' , CategoryListView.as_view() , name = 'category'),
     path('salesman/market/category/<str:slug>' , MerketCategoryListView.as_view() , name = 'market'),
@@ -28,14 +28,14 @@ urlpatterns1 = [
 ]
 
 
-urlpatterns3 = [
+urlpatterns += [
     path('order-success' , OrderSuccessTemplateView.as_view() , name='order-success'),
     path('order/list' , OrderListView.as_view() , name='order-list'),
     path('operator/page' , OperatorFormView.as_view() , name='operator'),
     path('operator/order<int:pk>' , OrderDetailView.as_view() , name='order-detail')
 ]
 
-urlpatterns2 = [
+urlpatterns+= [
     path('auth' , AuthFormView.as_view() , name = 'auth'),
     path('doc' , UseDocumentTemplate.as_view() , name = 'doc'),
     path('logout' , LogoutView.as_view() , name = 'logout'),
@@ -48,11 +48,8 @@ urlpatterns2 = [
 
 ]
 
-urlpatterns4 = [
+urlpatterns+= [
     path('graphql/', GraphQLView.as_view(graphiql=True, schema=schema))
 ]
-
-
-urlpatterns = urlpatterns1 + urlpatterns2 + urlpatterns3+urlpatterns4
 
 

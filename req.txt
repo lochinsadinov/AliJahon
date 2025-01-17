@@ -4,9 +4,3 @@ pillow==11.0.0
 sqlparse==0.5.2
 
 
-git init
-git add .
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/dilshodev-py/drf_25.git
-git push -u origin main
