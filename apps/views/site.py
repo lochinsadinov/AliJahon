@@ -103,37 +103,7 @@ class KangalarTemplateView(TemplateView):
     template_name = 'apps/site/kangalar.html'
 
 
-# class ProductDetailView(DetailView, FormView):
-#     form_class = OrderForm
-#     queryset = Product.objects.all()
-#     template_name = 'apps/site/product_detail.html'
-#     slug_url_kwarg = 'slug'
-#     context_object_name = "product"
-#     success_url = reverse_lazy('order-success')
-#
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         context['site'] = AdminSite.objects.first()
-#         return context
-#
-#     def form_valid(self, form):
-#         data = form.cleaned_data
-#         site = AdminSite.objects.first()
-#         product = Product.objects.filter(slug=data.get('product')).first()
-#         product.quantity -= 1
-#         product.save()
-#         all_amount = site.delivering_price + product.price
-#         data['product'] = product
-#         data['user'] = self.request.user
-#         Order.objects.create(**data, all_amount=all_amount)  # malumotni databegsa saqlash formdan forma kelyapti
-#         context = {
-#             "product": product,
-#             "site": site
-#         }
-#         return render(self.request, 'apps/order/success.html', context=context)
-#
-#     def form_invalid(self, form):
-#         print(form)
+
 
 
 class ProductDetailView(ListView, FormView):

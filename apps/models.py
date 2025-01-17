@@ -112,8 +112,10 @@ class BaseSlug(Model):
 class Category(BaseSlug):
     image = ImageField(upload_to="product/")
 
+
     def __str__(self):
         return self.name
+
 
 
 class Product(BaseSlug , DateTimeBaseModel):
